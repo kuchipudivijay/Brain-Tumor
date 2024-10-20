@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Set background color */
+            background-image: url('C:/Users/guntu/Downloads/111.jpg');
+        }
+
+        h1 {
+            text-align: center;
+            padding-top: 50px;
+            color: #333; /* Set text color */
+        }
+
+        header {
+            background: linear-gradient(to right, #0072ff, #00c6ff); /* Add gradient background */
+            padding: 20px;
+        }
+
+        .logo {
+            color: #fff; /* Set text color */
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .nav-links li a {
+            color: #fff; /* Set text color */
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff; /* Set background color */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+        }
+
+        input[type="file"] {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #0072ff; /* Set button background color */
+            color: #fff; /* Set button text color */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+        }
+
+        #outputImage {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Brain Tumor Detection</h1>
+    <header>
+        <nav>
+            <div class="logo">Brain Tumor Detection</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data" action="/predict">
+            <input type="file" name="file" onchange="displayImage(this)">
+            <button onclick="detectTumor()">Detect Tumor</button>
+        </form>
+        {% if prediction %}
+            <div id="output">
+                <h2>Output</h2>
+                <p>{{ prediction }}</p>
+
+            </div>
+        {% endif %}
+        <script src="Brain Tumor/indd.js"></script>
+    </div>
+</body>
+</html>
